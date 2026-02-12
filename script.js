@@ -1,6 +1,11 @@
 // WeatherAPI.com API configuration
+// Note: For a production app with sensitive data, use a backend proxy to secure the API key.
+// For this simple weather app, client-side API key is acceptable as it's free tier with rate limits.
 const API_KEY = 'YOUR_API_KEY_HERE'; // Users need to get their own API key from weatherapi.com
 const API_BASE_URL = 'https://api.weatherapi.com/v1';
+
+// Configuration constants
+const ERROR_DISPLAY_DURATION = 5000; // Duration in ms to display error messages
 
 // DOM elements
 const cityInput = document.getElementById('cityInput');
@@ -123,7 +128,7 @@ function showError(message) {
     errorMsg.classList.remove('hidden');
     setTimeout(() => {
         errorMsg.classList.add('hidden');
-    }, 5000);
+    }, ERROR_DISPLAY_DURATION);
 }
 
 // Hide all display elements
